@@ -253,6 +253,43 @@ public class Principal {
 					
 				}
 				
+			case 4:
+				System.out.println("Vuelos comerciales");
+				peinador.mostrarInfoVuelosComerciales();
+				System.out.println("Vuelos mercancías: ");
+				peinador.mostrarInfoVuelosMercancias();
+				break;
+			case 5:
+				System.out.println("Introduzca un destino:");
+				String destino5 = new Scanner(System.in).next();
+				ArrayList<Vuelo> vuelosDestino = peinador.getVuelosByDestino(destino5);
+				
+				for(Vuelo v :vuelosDestino) {
+					System.out.println(v);
+				}
+				break;
+			
+			case 6:
+				float gananciaMercancias = peinador.calcularGananciaMercancias();
+				float gananciaComercial = peinador.calcularGananciaComercial();
+				System.out.println("Ganancia vuelos comerciales: " + gananciaComercial);
+				System.out.println("Ganancia vuelos Mercancías: " + gananciaMercancias);
+				break;
+				
+			case 7:
+				
+				System.out.println(peinador.gananciaTotal());
+				break;
+				
+			case 8:
+				for(Vuelo v : peinador.gestorVuelos) {
+					System.out.println(v.getDistancia());
+				}
+				System.out.println(peinador.getVueloMasLargo().getDistancia());
+				break;
+			case 9:
+				break;
+				
 			} // Final del Switch del menú
 		}
 		while(opcion<11);

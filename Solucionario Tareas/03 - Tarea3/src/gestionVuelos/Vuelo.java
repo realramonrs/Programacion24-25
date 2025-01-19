@@ -72,8 +72,6 @@ public abstract class Vuelo {
 		return this.distancia;
 	}
 	
-	
-	@Override
 	public String toString() {
 		return "Vuelo [codigo=" + codigo + ", companhia=" + companhia + ", origen=" + origen + ", destino=" + destino
 				+ ", fechaSalida=" + fechaSalida + ", distancia=" + distancia + "]";

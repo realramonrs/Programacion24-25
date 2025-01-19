@@ -58,6 +58,10 @@ public class VueloMercancias extends Vuelo {
 	public String toString() {
 		return super.toString() + "VueloMercancias [mercancia=" + mercancia + ", peso=" + peso + ", precioBase=" + precioBase + "]";
 	}
+	
+	public void aplicarImpuesto() {
+		
+	}
 
 	
 }

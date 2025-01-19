@@ -21,6 +21,7 @@ public class Aeropuerto {
 	public float getGanancia() {
 		float ganancia = 0;
 		for(Vuelo v : gestorVuelos) {
+			
 			ganancia+=v.calcularGanancia();
 		}
 		return ganancia;
@@ -40,7 +41,7 @@ public class Aeropuerto {
 		ArrayList<Vuelo> vuelos = new ArrayList<Vuelo>();
 		
 		for(Vuelo v : gestorVuelos) {
-			if(v.getDestino().equals(destino)) {
+			if(v.getDestino().getNombre().equals(destino)) {
 				vuelos.add(v);
 			}
 		}
@@ -59,6 +60,20 @@ public class Aeropuerto {
 	public void mostrarInfoVuelos() {
 		for(Vuelo v : gestorVuelos) {
 			System.out.println(v);
+		}
+	}
+	
+	public void mostrarInfoVuelosComerciales() {
+		for(Vuelo v : gestorVuelos) {
+			if(v instanceof VueloComercial)
+				System.out.println(v);
+		}
+	}
+	
+	public void mostrarInfoVuelosMercancias() {
+		for(Vuelo v : gestorVuelos) {
+			if(v instanceof VueloMercancias)
+				System.out.println(v);
 		}
 	}
 	public void mostrarCodigos() {
@@ -85,4 +100,38 @@ public class Aeropuerto {
 				}
 			}	
 		}
+	
+	public float calcularGananciaMercancias() {
+		float ganancia = 0;
+		for(Vuelo v : gestorVuelos) {
+			if(v instanceof VueloMercancias) {
+				ganancia += v.calcularGanancia();
+			}
+		}
+		return ganancia;
+	}
+	public float calcularGananciaComercial() {
+		float ganancia = 0;
+		for(Vuelo v : gestorVuelos) {
+			if(v instanceof VueloComercial) {
+				ganancia += v.calcularGanancia();
+			}
+		}
+		return ganancia;
+	}
+	
+	public float gananciaTotal() {
+		return calcularGananciaComercial() + calcularGananciaMercancias();
+	}
+	
+	public Vuelo getVueloMasLargo() {
+		Vuelo v = gestorVuelos.get(0);
+		
+		for(Vuelo vuelo : gestorVuelos) {
+			if(vuelo.getDistancia()>v.getDistancia()) {
+				v = vuelo;
+			}
+		}
+		return v;
+	}
 }
