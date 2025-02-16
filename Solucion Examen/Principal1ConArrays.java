@@ -13,7 +13,7 @@ public class Principal2ConArrays {
 	 * @param args
 	 */
 	
-	//Apartado i: No se pueden guardar 2 objetos con el mismo nombre
+	//Apartado f: No se pueden guardar 2 objetos con el mismo nombre
 	public static boolean buscarNombre(ObjetoEspacial c[],ObjetoEspacial o) {
 		boolean encontrado = false;
 		
@@ -53,7 +53,7 @@ public class Principal2ConArrays {
 		
 		guardarObjetoEspacial(cosmos,new ObjetoEspacial(340,1000,"D"));
 		
-		//Apartado j): Mostramos los nombres y la masa de los objetos guardados
+		//Apartado g): Mostramos los nombres y la masa de los objetos guardados
 		for(ObjetoEspacial o : cosmos) {
 			if(o!=null)
 			System.out.println(o.getNombre() + " " + o.getMasa());
